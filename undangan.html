@@ -34,7 +34,6 @@
             z-index: 1;
         }
 
-        /* Kertas bayangan di belakang dengan ketebalan 2px */
         .paper-wrapper::before {
             content: '';
             position: absolute;
@@ -47,7 +46,7 @@
             transform: rotate(2deg);
             z-index: -1;
             opacity: 0.8; 
-            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3); /* Menambahkan efek tebal 2px pada bayangan */
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
         }
 
         .paper-content {
@@ -63,8 +62,8 @@
         }
 
         .inner-area {
-            width: 65%; 
-            margin-left: 3%; 
+            width: 55%; /* Diperkecil dari 65% agar banner & teks tidak keluar kertas */
+            margin-left: 2%; /* Disesuaikan agar lebih pas di tengah pola garis kertas */
         }
 
         /* --- HEADER SAPAAN TAMU --- */
@@ -73,7 +72,7 @@
         }
 
         .hello-text {
-            font-size: 15px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 13px; /* Diperkecil */
             font-weight: 800;
             color: #4a4a4a;
             margin-bottom: 4px;
@@ -83,15 +82,15 @@
             display: inline-block;
             background-color: #79ccf8;
             color: #333333;
-            font-size: 19px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 16px; /* Diperkecil */
             font-weight: 900;
-            padding: 4px 15px;
+            padding: 4px 12px;
             text-transform: uppercase;
         }
 
         /* --- KONTEN UTAMA --- */
         .paragraph {
-            font-size: 12.5px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 11px; /* Diperkecil */
             font-weight: 700;
             margin-bottom: 16px;
             text-align: justify;
@@ -100,27 +99,27 @@
 
         .highlight-banner {
             background-color: #79ccf8;
-            padding: 6px 12px;
+            padding: 5px 10px;
             text-align: center;
-            margin: 20px 0;
+            margin: 18px 0;
             width: 100%; 
             display: inline-block;
         }
 
         .highlight-banner .text-black {
             font-family: 'Permanent Marker', cursive;
-            font-size: 15px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 12.5px; /* Diperkecil */
             color: #333;
         }
 
         .highlight-banner .text-red {
             font-family: 'Permanent Marker', cursive;
-            font-size: 15px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 12.5px; /* Diperkecil */
             color: #e73c3c;
         }
 
         .details-section {
-            font-size: 12.5px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 11px; /* Diperkecil */
             font-weight: 700;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -150,9 +149,9 @@
             text-align: center;
             background-color: white; 
             color: black;
-            border: 2px solid black; /* Diubah menjadi ketebalan 2px sesuai permintaan */
-            padding: 8px 6px;
-            font-size: 14px; /* Diturunkan 1px dari sebelumnya */
+            border: 2px solid black;
+            padding: 7px 5px;
+            font-size: 12px; /* Diperkecil */
             font-weight: 800;
             text-decoration: none;
             margin-bottom: 10px;
@@ -171,7 +170,7 @@
         }
 
         .action-desc {
-            font-size: 10px; /* Diturunkan 1px dari sebelumnya */
+            font-size: 9px; /* Diperkecil */
             font-weight: 700;
             text-align: left;
             line-height: 1.4;
@@ -184,30 +183,30 @@
             }
 
             .inner-area {
-                width: 72%; 
+                width: 65%; /* Diperkecil dari 72% agar aman di mobile */
                 margin-left: 2%;
             }
 
             .hello-text {
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .name-highlight {
-                font-size: 15px;
-                padding: 3px 12px;
+                font-size: 14px;
+                padding: 3px 10px;
             }
 
             .paragraph {
-                font-size: 10.5px;
+                font-size: 9.5px;
             }
 
             .highlight-banner .text-black, 
             .highlight-banner .text-red {
-                font-size: 13px;
+                font-size: 11px;
             }
 
             .details-section {
-                font-size: 10.5px;
+                font-size: 9.5px;
             }
 
             .actions-container {
@@ -216,13 +215,12 @@
             }
 
             .action-btn {
-                padding: 8px;
-                font-size: 13px;
-                border: 2px solid black; /* Konsisten 2px di HP */
+                padding: 7px;
+                font-size: 11px;
             }
 
             .action-desc {
-                font-size: 9.5px;
+                font-size: 8.5px;
                 text-align: center;
             }
         }

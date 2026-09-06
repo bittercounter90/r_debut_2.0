@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Background utama (luar) */
             background-image: url('assets/background.png');
             background-size: cover;
             background-position: center;
@@ -26,40 +25,39 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
-            line-height: 1.6;
         }
 
-        /* --- EFEK KERTAS BERTUMPUK --- */
         .paper-wrapper {
             position: relative;
             width: 100%;
-            max-width: 650px;
+            max-width: 700px; /* Sedikit diperlebar agar tidak terlalu sempit */
             z-index: 1;
         }
 
-        /* Kertas bayangan di belakang (untuk efek tumpukan) */
+        /* Kertas bayangan di belakang */
         .paper-wrapper::before {
             content: '';
             position: absolute;
             top: 5px;
-            left: 15px;
-            right: -15px;
+            left: 10px;
+            right: -10px;
             bottom: -5px;
             background-image: url('assets/backgroundkertas.png');
-            background-size: cover;
+            /* Menggunakan 100% 100% agar gambar pas menutupi kotak tanpa terpotong (cover) */
+            background-size: 100% 100%; 
             transform: rotate(2deg);
             z-index: -1;
-            box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
-            border-radius: 2px;
+            opacity: 0.8; 
         }
 
         .paper-content {
-            /* Background kertas (dalam) */
             background-image: url('assets/backgroundkertas.png');
-            background-size: cover;
-            background-position: top center;
-            padding: 50px 40px;
-            box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+            /* Memaksa gambar background mengikuti ukuran div secara penuh */
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Padding diperbesar drastis agar teks aman di tengah area putih kertas */
+            padding: 70px 90px; 
             position: relative;
             border-radius: 2px;
         }
@@ -78,7 +76,7 @@
 
         .name-highlight {
             display: inline-block;
-            background-color: #79ccf8; /* Warna biru muda */
+            background-color: #79ccf8;
             color: #333333;
             font-size: 24px;
             font-weight: 900;
@@ -92,6 +90,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: justify;
+            line-height: 1.7; /* Jarak antar baris disesuaikan agar lebih rapi */
         }
 
         .highlight-banner {
@@ -99,7 +98,6 @@
             padding: 8px 15px;
             text-align: center;
             margin: 25px 0;
-            /* transform: rotate(-1deg); */
         }
 
         .highlight-banner .text-black {
@@ -118,6 +116,7 @@
             font-size: 15px;
             font-weight: 700;
             margin-bottom: 35px;
+            line-height: 1.7;
         }
 
         .details-section p {
@@ -142,9 +141,9 @@
             display: block;
             width: 100%;
             text-align: center;
-            background-color: white; /* Opsional: bisa diganti transparent agar menyatu dengan kertas */
+            background-color: white; 
             color: black;
-            border: 4px solid black;
+            border: 3px solid black;
             padding: 12px 10px;
             font-size: 20px;
             font-weight: 800;
@@ -168,16 +167,18 @@
             font-size: 13px;
             font-weight: 700;
             text-align: left;
+            line-height: 1.5;
         }
 
         /* --- RESPONSIVE LAYOUT UNTUK HP --- */
-        @media screen and (max-width: 550px) {
+        @media screen and (max-width: 600px) {
             body {
                 padding: 20px 10px;
             }
 
             .paper-content {
-                padding: 30px 20px;
+                /* Padding HP disesuaikan agar tidak menabrak batas gambar */
+                padding: 50px 45px; 
             }
 
             .hello-text {
@@ -185,12 +186,12 @@
             }
 
             .name-highlight {
-                font-size: 20px;
+                font-size: 18px;
                 padding: 5px 15px;
             }
 
             .paragraph {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .highlight-banner .text-black, 
@@ -199,7 +200,7 @@
             }
 
             .details-section {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .actions-container {
@@ -224,10 +225,8 @@
     <div class="paper-wrapper">
         <div class="paper-content">
             
-            <!-- BAGIAN HEADER NAMA TAMU -->
             <div class="greeting-section">
                 <div class="hello-text">Hello,</div>
-                <!-- ID guest-name-display akan diisi otomatis oleh JavaScript -->
                 <div class="name-highlight" id="guest-name-display">GUEST</div>
             </div>
 
@@ -257,7 +256,6 @@
 
             <div class="actions-container">
                 <div class="action-card">
-                    <!-- EDIT LINK YOUTUBE DI BAGIAN href="..." DI BAWAH INI -->
                     <a href="https://www.youtube.com/@RucusLiveID" class="action-btn" target="_blank">YOUTUBE</a>
                     <p class="action-desc">
                         See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
@@ -265,7 +263,6 @@
                 </div>
 
                 <div class="action-card">
-                    <!-- EDIT LINK GFORM DI BAGIAN href="..." DI BAWAH INI -->
                     <a href="https://forms.gle/linkgformkamu" class="action-btn" target="_blank">GFORM</a>
                     <p class="action-desc">
                         Got any questions, messages or want to roast the blue cat before the show?<br>Drop them right here!
@@ -276,7 +273,6 @@
         </div>
     </div>
 
-    <!-- Script untuk memuat nama tamu -->
     <script src="database.js"></script>
     <script>
         function getQueryParam(param) {
@@ -288,7 +284,6 @@
             const guestId = getQueryParam('id');
             const guestNameElement = document.getElementById('guest-name-display');
 
-            // Cek jika ID ada di database.js, jika tidak gunakan teks dari parameter langsung
             if (guestId && typeof guestDatabase !== 'undefined' && guestDatabase[guestId]) {
                 guestNameElement.textContent = guestDatabase[guestId];
             } else if (guestId) {

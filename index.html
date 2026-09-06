@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Spesial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap');
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Menggunakan assets background.png */
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            background-color: rgba(225, 225, 225, 0.95);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            /* Opsional: Membuat efek blur sedikit di belakang kartu */
+            backdrop-filter: blur(5px);
+        }
+
+        .envelope-img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .guest-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #6bb9f0; /* Warna biru muda */
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .guest-instruction {
+            font-size: 14px;
+            color: #555555;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .btn-open {
+            background-color: #7ecef4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-open:hover {
+            background-color: #5bb5e6;
+            transform: scale(1.05);
+        }
+
+        .btn-open:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <!-- Menggunakan assets envelope.png -->
+        <img src="envelope.png" alt="Envelope" class="envelope-img">
+        
+        <h2 class="guest-title">Untuk: <span id="guest-name">Tamu Undangan</span></h2>
+        
+        <p class="guest-instruction">Ketuk tombol di bawah untuk membuka kartu<br>undanganmu!</p>
+        
+        <button class="btn-open" onclick="bukaUndangan()">BUKA UNDANGAN</button>
+    </div>
+
+    <!-- Memanggil database.js -->
+    <script src="database.js"></script>
+    <script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Jalankan saat halaman dimuat
+        document.addEventListener("DOMContentLoaded", () => {
+            const guestId = getQueryParam('id');
+            const guestNameElement = document.getElementById('guest-name');
+
+            // Cek apakah ID ada di database.js
+            if (guestId && guestDatabase[guestId]) {
+                guestNameElement.textContent = guestDatabase[guestId];
+            } else if (guestId) {
+                // Jika pakai parameter nama langsung (contoh: ?id=Reza)
+                // Mengubah - atau %20 menjadi spasi
+                guestNameElement.textContent = decodeURIComponent(guestId).replace(/-/g, ' ');
+            }
+        });
+
+        // Fungsi saat tombol diklik
+        function bukaUndangan() {
+            // Ganti 'undangan.html' dengan halaman utama undangan Anda selanjutnya
+            // Parameter ID diteruskan ke halaman selanjutnya agar nama tetap terbaca
+            const currentUrl = window.location.search;
+            window.location.href = `undangan.html${currentUrl}`; 
+        }
+    </script>
+</body>
+</html>

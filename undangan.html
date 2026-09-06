@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mengunci zoom bawaan browser HP agar halaman benar-benar statis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Rucus Re-Debut Invitation</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Permanent+Marker&display=swap');
@@ -13,18 +14,24 @@
             padding: 0;
         }
 
+        /* Mengunci layar agar tidak bisa di-scroll (statis) */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; 
+        }
+
         body {
             background-image: url('assets/background.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             font-family: 'Nunito', sans-serif;
             color: #333333;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 30px 10px;
         }
 
         .paper-wrapper {
@@ -175,66 +182,68 @@
             line-height: 1.4;
         }
 
-        /* --- RESPONSIVE LAYOUT UNTUK HP (Diperbaiki agar persis web desktop) --- */
+        /* --- RESPONSIVE LAYOUT UNTUK HP --- */
         @media screen and (max-width: 600px) {
-            body {
-                padding: 15px 5px; /* Mengurangi padding luar agar kertas bisa lebih maksimal */
+            .paper-wrapper {
+                width: 95%; /* Melebarkan kertas agar penuh di layar HP */
+                transform: scale(1.08); /* Memberikan efek zoom in */
+                transform-origin: center center;
             }
 
             .paper-content {
-                padding: 45px 0; 
+                padding: 55px 0; /* Padding ditingkatkan agar proporsi kertas tetap pas */
             }
 
             .inner-area {
-                width: 58%; /* Ditahan di 58% agar teks tidak meluber keluar garis batas kertas */
+                width: 58%; 
                 margin-left: 2%;
             }
 
             .hello-text {
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .name-highlight {
-                font-size: 12px;
-                padding: 3px 8px;
+                font-size: 14px;
+                padding: 4px 10px;
             }
 
             .paragraph {
-                font-size: 8.5px;
-                margin-bottom: 12px;
+                font-size: 9.5px;
+                margin-bottom: 13px;
                 line-height: 1.5;
             }
 
             .highlight-banner {
-                padding: 4px 6px;
-                margin: 12px 0;
+                padding: 5px 8px;
+                margin: 14px 0;
             }
 
             .highlight-banner .text-black, 
             .highlight-banner .text-red {
-                font-size: 9.5px;
+                font-size: 10.5px;
             }
 
             .details-section {
-                font-size: 8.5px;
-                margin-bottom: 15px;
+                font-size: 9.5px;
+                margin-bottom: 18px;
             }
 
             .actions-container {
-                flex-direction: row; /* DIKEMBALIKAN KE ROW agar tombol tetap sejajar kanan-kiri */
-                gap: 8px; /* Jarak antar tombol diperkecil */
+                flex-direction: row; /* Mengembalikan susunan sejajar layaknya desktop */
+                gap: 10px;
             }
 
             .action-btn {
-                padding: 5px 3px;
-                font-size: 9px;
-                border: 1.5px solid black; /* Border sedikit ditipiskan untuk proporsi mobile */
-                margin-bottom: 6px;
+                padding: 6px 4px;
+                font-size: 9.5px;
+                border: 1.5px solid black; 
+                margin-bottom: 8px;
             }
 
             .action-desc {
-                font-size: 7px; /* Diperkecil agar muat berdampingan */
-                text-align: left; /* Tetap rata kiri seperti desktop */
+                font-size: 7.5px;
+                text-align: left; 
                 line-height: 1.3;
             }
         }
@@ -277,7 +286,7 @@
 
                 <div class="actions-container">
                     <div class="action-card">
-                        <a href="https://www.youtube.com/@rucuslive_id" class="action-btn" target="_blank">YOUTUBE</a>
+                        <a href="https://www.youtube.com/@RucusLiveID" class="action-btn" target="_blank">YOUTUBE</a>
                         <p class="action-desc">
                             See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
                         </p>

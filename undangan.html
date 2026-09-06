@@ -24,13 +24,13 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 40px 15px; /* Sedikit dikurangi agar kertas bisa lebih lebar di layar */
         }
 
         .paper-wrapper {
             position: relative;
             width: 100%;
-            max-width: 700px; /* Sedikit diperlebar agar tidak terlalu sempit */
+            max-width: 750px; /* Diperlebar agar teks punya ruang bernapas di dalam kertas */
             z-index: 1;
         }
 
@@ -43,7 +43,6 @@
             right: -10px;
             bottom: -5px;
             background-image: url('assets/backgroundkertas.png');
-            /* Menggunakan 100% 100% agar gambar pas menutupi kotak tanpa terpotong (cover) */
             background-size: 100% 100%; 
             transform: rotate(2deg);
             z-index: -1;
@@ -52,12 +51,15 @@
 
         .paper-content {
             background-image: url('assets/backgroundkertas.png');
-            /* Memaksa gambar background mengikuti ukuran div secara penuh */
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
-            /* Padding diperbesar drastis agar teks aman di tengah area putih kertas */
-            padding: 70px 90px; 
+            
+            /* PADDING INI KUNCI UTAMANYA */
+            /* Atas: 90px | Kanan: 120px | Bawah: 90px | Kiri: 100px */
+            /* Nilai kanan lebih besar karena sobekan/bayangan biasanya memakan ruang di kanan */
+            padding: 90px 130px 90px 100px; 
+            
             position: relative;
             border-radius: 2px;
         }
@@ -90,7 +92,7 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: justify;
-            line-height: 1.7; /* Jarak antar baris disesuaikan agar lebih rapi */
+            line-height: 1.7; 
         }
 
         .highlight-banner {
@@ -98,6 +100,9 @@
             padding: 8px 15px;
             text-align: center;
             margin: 25px 0;
+            /* Memastikan banner tidak melebihi area teks */
+            width: 100%; 
+            display: inline-block;
         }
 
         .highlight-banner .text-black {
@@ -145,7 +150,7 @@
             color: black;
             border: 3px solid black;
             padding: 12px 10px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             text-decoration: none;
             margin-bottom: 15px;
@@ -171,18 +176,19 @@
         }
 
         /* --- RESPONSIVE LAYOUT UNTUK HP --- */
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 650px) {
             body {
-                padding: 20px 10px;
+                padding: 15px 10px;
             }
 
             .paper-content {
-                /* Padding HP disesuaikan agar tidak menabrak batas gambar */
-                padding: 50px 45px; 
+                /* Padding disesuaikan juga untuk HP agar tetap di tengah */
+                /* Atas: 60px | Kanan: 75px | Bawah: 60px | Kiri: 60px */
+                padding: 60px 75px 60px 60px; 
             }
 
             .hello-text {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .name-highlight {
@@ -205,12 +211,12 @@
 
             .actions-container {
                 flex-direction: column;
-                gap: 25px;
+                gap: 20px;
             }
 
             .action-btn {
                 padding: 10px;
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .action-desc {

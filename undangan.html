@@ -34,7 +34,6 @@
             z-index: 1;
         }
 
-        /* Kertas bayangan di belakang tanpa outline hitam */
         .paper-wrapper::before {
             content: '';
             position: absolute;
@@ -47,7 +46,6 @@
             transform: rotate(2deg);
             z-index: -1;
             opacity: 0.8; 
-            /* box-shadow hitam dihilangkan */
         }
 
         .paper-content {
@@ -177,52 +175,67 @@
             line-height: 1.4;
         }
 
-        /* --- RESPONSIVE LAYOUT UNTUK HP --- */
+        /* --- RESPONSIVE LAYOUT UNTUK HP (Diperbaiki agar persis web desktop) --- */
         @media screen and (max-width: 600px) {
+            body {
+                padding: 15px 5px; /* Mengurangi padding luar agar kertas bisa lebih maksimal */
+            }
+
             .paper-content {
-                padding: 50px 0; 
+                padding: 45px 0; 
             }
 
             .inner-area {
-                width: 65%; 
+                width: 58%; /* Ditahan di 58% agar teks tidak meluber keluar garis batas kertas */
                 margin-left: 2%;
             }
 
             .hello-text {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .name-highlight {
-                font-size: 14px;
-                padding: 3px 10px;
+                font-size: 12px;
+                padding: 3px 8px;
             }
 
             .paragraph {
-                font-size: 9.5px;
+                font-size: 8.5px;
+                margin-bottom: 12px;
+                line-height: 1.5;
+            }
+
+            .highlight-banner {
+                padding: 4px 6px;
+                margin: 12px 0;
             }
 
             .highlight-banner .text-black, 
             .highlight-banner .text-red {
-                font-size: 11px;
-            }
-
-            .details-section {
                 font-size: 9.5px;
             }
 
+            .details-section {
+                font-size: 8.5px;
+                margin-bottom: 15px;
+            }
+
             .actions-container {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: row; /* DIKEMBALIKAN KE ROW agar tombol tetap sejajar kanan-kiri */
+                gap: 8px; /* Jarak antar tombol diperkecil */
             }
 
             .action-btn {
-                padding: 7px;
-                font-size: 11px;
+                padding: 5px 3px;
+                font-size: 9px;
+                border: 1.5px solid black; /* Border sedikit ditipiskan untuk proporsi mobile */
+                margin-bottom: 6px;
             }
 
             .action-desc {
-                font-size: 8.5px;
-                text-align: center;
+                font-size: 7px; /* Diperkecil agar muat berdampingan */
+                text-align: left; /* Tetap rata kiri seperti desktop */
+                line-height: 1.3;
             }
         }
     </style>

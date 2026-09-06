@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rucus Re-Debut Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Permanent+Marker&display=swap');
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* Background utama (luar) */
+            background-image: url('assets/background.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Nunito', sans-serif;
+            color: #333333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* --- EFEK KERTAS BERTUMPUK --- */
+        .paper-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            z-index: 1;
+        }
+
+        /* Kertas bayangan di belakang (untuk efek tumpukan) */
+        .paper-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            right: -15px;
+            bottom: -5px;
+            background-image: url('assets/backgroundkertas.png');
+            background-size: cover;
+            transform: rotate(2deg);
+            z-index: -1;
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
+            border-radius: 2px;
+        }
+
+        .paper-content {
+            /* Background kertas (dalam) */
+            background-image: url('assets/backgroundkertas.png');
+            background-size: cover;
+            background-position: top center;
+            padding: 50px 40px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        /* --- HEADER SAPAAN TAMU --- */
+        .greeting-section {
+            margin-bottom: 25px;
+        }
+
+        .hello-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: #4a4a4a;
+            margin-bottom: 5px;
+        }
+
+        .name-highlight {
+            display: inline-block;
+            background-color: #79ccf8; /* Warna biru muda */
+            color: #333333;
+            font-size: 24px;
+            font-weight: 900;
+            padding: 5px 20px;
+            text-transform: uppercase;
+        }
+
+        /* --- KONTEN UTAMA --- */
+        .paragraph {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight-banner {
+            background-color: #79ccf8;
+            padding: 8px 15px;
+            text-align: center;
+            margin: 25px 0;
+            /* transform: rotate(-1deg); */
+        }
+
+        .highlight-banner .text-black {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .highlight-banner .text-red {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 20px;
+            color: #e73c3c;
+        }
+
+        .details-section {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 35px;
+        }
+
+        .details-section p {
+            margin-bottom: 10px;
+        }
+
+        /* --- AREA TOMBOL --- */
+        .actions-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .action-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: white; /* Opsional: bisa diganti transparent agar menyatu dengan kertas */
+            color: black;
+            border: 4px solid black;
+            padding: 12px 10px;
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background-color: #e8e8e8;
+            transform: translateY(-2px);
+            box-shadow: 3px 3px 0px black;
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .action-desc {
+            font-size: 13px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        /* --- RESPONSIVE LAYOUT UNTUK HP --- */
+        @media screen and (max-width: 550px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .paper-content {
+                padding: 30px 20px;
+            }
+
+            .hello-text {
+                font-size: 18px;
+            }
+
+            .name-highlight {
+                font-size: 20px;
+                padding: 5px 15px;
+            }
+
+            .paragraph {
+                font-size: 14px;
+            }
+
+            .highlight-banner .text-black, 
+            .highlight-banner .text-red {
+                font-size: 16px;
+            }
+
+            .details-section {
+                font-size: 14px;
+            }
+
+            .actions-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .action-btn {
+                padding: 10px;
+                font-size: 18px;
+            }
+
+            .action-desc {
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paper-wrapper">
+        <div class="paper-content">
+            
+            <!-- BAGIAN HEADER NAMA TAMU -->
+            <div class="greeting-section">
+                <div class="hello-text">Hello,</div>
+                <!-- ID guest-name-display akan diisi otomatis oleh JavaScript -->
+                <div class="name-highlight" id="guest-name-display">GUEST</div>
+            </div>
+
+            <p class="paragraph">
+                You are exclusively invited to witness the most absurd evolution in the Meowtiverse. The blue cat is upgrading to 2.0! Yes, he finally has hands now, and no, his brain rot hasn't been fixed.
+            </p>
+
+            <p class="paragraph">
+                Get ready for a night full of scuffed moments, questionable life choices, and slice of life comedy right on your screen. Whether you are here for the lore or just want to see a cat rage quit, you belong here.
+            </p>
+
+            <div class="highlight-banner">
+                <span class="text-black">Meowtiverse Phase 2:</span> 
+                <span class="text-red">RUCUS Re-Debut</span>
+            </div>
+
+            <div class="details-section">
+                <p>
+                    Save the Date:<br>
+                    Sunday, October 10th, 2026<br>
+                    07.00 PM | WIB | GMT +7
+                </p>
+                <p>
+                    Location: Rucus Live ID YouTube Channel
+                </p>
+            </div>
+
+            <div class="actions-container">
+                <div class="action-card">
+                    <!-- EDIT LINK YOUTUBE DI BAGIAN href="..." DI BAWAH INI -->
+                    <a href="https://www.youtube.com/@RucusLiveID" class="action-btn" target="_blank">YOUTUBE</a>
+                    <p class="action-desc">
+                        See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
+                    </p>
+                </div>
+
+                <div class="action-card">
+                    <!-- EDIT LINK GFORM DI BAGIAN href="..." DI BAWAH INI -->
+                    <a href="https://forms.gle/linkgformkamu" class="action-btn" target="_blank">GFORM</a>
+                    <p class="action-desc">
+                        Got any questions, messages or want to roast the blue cat before the show?<br>Drop them right here!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script untuk memuat nama tamu -->
+    <script src="database.js"></script>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const guestId = getQueryParam('id');
+            const guestNameElement = document.getElementById('guest-name-display');
+
+            // Cek jika ID ada di database.js, jika tidak gunakan teks dari parameter langsung
+            if (guestId && typeof guestDatabase !== 'undefined' && guestDatabase[guestId]) {
+                guestNameElement.textContent = guestDatabase[guestId];
+            } else if (guestId) {
+                guestNameElement.textContent = decodeURIComponent(guestId).replace(/-/g, ' ');
+            } else {
+                guestNameElement.textContent = "MEOWTIVERSE GUEST";
+            }
+        });
+    </script>
+</body>
+</html>

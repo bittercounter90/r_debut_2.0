@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rucus Re-Debut Invitation</title>
+    <title>Undangan Spesial</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap');
 
         * {
             box-sizing: border-box;
@@ -14,230 +14,117 @@
         }
 
         body {
-            background-image: url('assets/backgroundkertas.png');
+            background-image: url('assets/background.png');
             background-size: cover;
-            background-position: top center;
+            background-position: center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: 'Nunito', sans-serif;
-            color: #333333;
             display: flex;
             justify-content: center;
-            line-height: 1.6;
+            align-items: center;
             min-height: 100vh;
         }
 
-        .container {
-            width: 100%;
-            max-width: 650px;
-            padding: 50px 20px;
+        .card-container {
+            background-color: rgba(225, 225, 225, 0.95);
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border-radius: 10px; /* Opsional: membuat sudut kartu sedikit membulat */
         }
 
-        /* --- HEADER SAPAAN TAMU --- */
-        .greeting-section {
-            margin-bottom: 30px;
-        }
-
-        .hello-text {
-            font-size: 22px;
-            font-weight: 800;
-            color: #4a4a4a;
-            margin-bottom: 5px;
-        }
-
-        .name-highlight {
-            display: inline-block;
-            background-color: #6bb9f0; /* Warna biru blok */
-            color: #333333;
-            font-size: 26px;
-            font-weight: 900;
-            padding: 5px 20px;
-            text-transform: uppercase;
-        }
-
-        /* --- KONTEN UTAMA --- */
-        .paragraph {
-            font-size: 16px;
-            font-weight: 700;
+        .envelope-img {
+            width: 150px;
+            height: auto;
             margin-bottom: 20px;
-            text-align: justify;
         }
 
-        .highlight-banner {
-            background-color: #79ccf8;
-            padding: 10px 15px;
-            text-align: center;
-            margin: 30px 0;
-            transform: rotate(-1deg);
-        }
-
-        .highlight-banner .text-black {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 22px;
-            color: #333;
-        }
-
-        .highlight-banner .text-red {
-            font-family: 'Permanent Marker', cursive;
-            font-size: 22px;
-            color: #e73c3c;
-        }
-
-        .details-section {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .details-section p {
+        .guest-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #6bb9f0;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        /* --- AREA TOMBOL --- */
-        .actions-container {
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-        }
-
-        .action-card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .action-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: white;
-            color: black;
-            border: 3px solid black;
-            padding: 12px 10px;
-            font-size: 20px;
-            font-weight: 800;
-            text-decoration: none;
-            margin-bottom: 15px;
-            transition: all 0.2s ease;
-        }
-
-        .action-btn:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 2px 2px 0px black;
-        }
-
-        .action-btn:active {
-            transform: translateY(0);
-            box-shadow: none;
-        }
-
-        .action-desc {
+        .guest-instruction {
             font-size: 14px;
-            font-weight: 700;
-            text-align: left;
+            color: #555555;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 600;
         }
 
-        /* --- RESPONSIVE LAYOUT UNTUK HP --- */
-        @media screen and (max-width: 500px) {
-            .container {
-                padding: 30px 15px;
+        .btn-open {
+            background-color: #7ecef4;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-open:hover {
+            background-color: #5bb5e6;
+            transform: scale(1.05);
+        }
+
+        .btn-open:active {
+            transform: scale(0.95);
+        }
+
+        /* --- PENYESUAIAN UNTUK LAYAR HP (RESPONSIVE) --- */
+        @media screen and (max-width: 480px) {
+            .card-container {
+                padding: 30px 20px; /* Mengurangi padding agar tidak terlalu sesak */
+                width: 85%;
             }
 
-            .hello-text {
-                font-size: 20px;
+            .envelope-img {
+                width: 120px; /* Mengecilkan gambar amplop sedikit */
+                margin-bottom: 15px;
             }
 
-            .name-highlight {
-                font-size: 22px;
-                padding: 5px 15px;
+            .guest-title {
+                font-size: 20px; /* Mengecilkan ukuran nama tamu */
             }
 
-            .paragraph {
+            .guest-instruction {
+                font-size: 13px; /* Mengecilkan teks instruksi */
+                margin-bottom: 25px;
+            }
+
+            .btn-open {
+                padding: 10px 25px; /* Menyesuaikan ukuran tombol */
                 font-size: 14px;
-            }
-
-            .highlight-banner .text-black, 
-            .highlight-banner .text-red {
-                font-size: 18px;
-            }
-
-            .details-section {
-                font-size: 14px;
-            }
-
-            .actions-container {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .action-btn {
-                padding: 10px;
-                font-size: 18px;
-            }
-
-            .action-desc {
-                font-size: 13px;
-                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="card-container">
+        <img src="assets/envelope.png" alt="Envelope" class="envelope-img">
         
-        <!-- BAGIAN HEADER NAMA TAMU -->
-        <div class="greeting-section">
-            <h3 class="hello-text">Hello,</h3>
-            <!-- ID guest-name-display akan diisi otomatis oleh JavaScript -->
-            <div class="name-highlight" id="guest-name-display">GUEST</div>
-        </div>
-
-        <p class="paragraph">
-            You are exclusively invited to witness the most absurd evolution in the Meowtiverse. The blue cat is upgrading to 2.0! Yes, he finally has hands now, and no, his brain rot hasn't been fixed.
-        </p>
-
-        <p class="paragraph">
-            Get ready for a night full of scuffed moments, questionable life choices, and slice of life comedy right on your screen. Whether you are here for the lore or just want to see a cat rage quit, you belong here.
-        </p>
-
-        <div class="highlight-banner">
-            <span class="text-black">Meowtiverse Phase 2:</span> 
-            <span class="text-red">RUCUS Re-Debut</span>
-        </div>
-
-        <div class="details-section">
-            <p>
-                Save the Date:<br>
-                Sunday, October 10th, 2026<br>
-                07.00 PM | WIB | GMT +7
-            </p>
-            <p>
-                Location: Rucus Live ID YouTube Channel
-            </p>
-        </div>
-
-        <div class="actions-container">
-            <div class="action-card">
-                <!-- EDIT LINK YOUTUBE DI BAGIAN href="..." DI BAWAH INI -->
-                <a href="https://youtube.com/..." class="action-btn" target="_blank">YOUTUBE</a>
-                <p class="action-desc">
-                    See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
-                </p>
-            </div>
-
-            <div class="action-card">
-                <!-- EDIT LINK GFORM DI BAGIAN href="..." DI BAWAH INI -->
-                <a href="https://forms.gle/..." class="action-btn" target="_blank">GFORM</a>
-                <p class="action-desc">
-                    Got any questions, messages or want to roast the blue cat before the show?<br>Drop them right here!
-                </p>
-            </div>
-        </div>
+        <h2 class="guest-title">Untuk: <span id="guest-name">Tamu Undangan</span></h2>
+        
+        <p class="guest-instruction">Ketuk tombol di bawah untuk membuka kartu<br>undanganmu!</p>
+        
+        <button class="btn-open" onclick="bukaUndangan()">BUKA UNDANGAN</button>
     </div>
 
-    <!-- Script untuk memuat nama tamu -->
     <script src="database.js"></script>
     <script>
         function getQueryParam(param) {
@@ -247,17 +134,19 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             const guestId = getQueryParam('id');
-            const guestNameElement = document.getElementById('guest-name-display');
+            const guestNameElement = document.getElementById('guest-name');
 
-            // Cek jika ID ada di database.js, jika tidak gunakan teks dari parameter langsung
-            if (guestId && typeof guestDatabase !== 'undefined' && guestDatabase[guestId]) {
+            if (guestId && guestDatabase && guestDatabase[guestId]) {
                 guestNameElement.textContent = guestDatabase[guestId];
             } else if (guestId) {
                 guestNameElement.textContent = decodeURIComponent(guestId).replace(/-/g, ' ');
-            } else {
-                guestNameElement.textContent = "MEOWTIVERSE GUEST";
             }
         });
+
+        function bukaUndangan() {
+            const currentUrl = window.location.search;
+            window.location.href = `undangan.html${currentUrl}`; 
+        }
     </script>
 </body>
 </html>

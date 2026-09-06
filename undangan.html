@@ -24,13 +24,13 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 40px 15px;
+            padding: 30px 10px;
         }
 
         .paper-wrapper {
             position: relative;
             width: 100%;
-            max-width: 750px; 
+            max-width: 680px; 
             z-index: 1;
         }
 
@@ -55,88 +55,88 @@
             background-position: center;
             background-repeat: no-repeat;
             
-            /* Hanya memberi jarak atas dan bawah. Kanan-kiri diatur oleh inner-area */
-            padding: 90px 0; 
+            /* Padding atas-bawah diperbesar agar teks tidak mentok ke pinggir atas/bawah */
+            padding: 70px 0; 
             
             position: relative;
             border-radius: 2px;
             display: flex;
-            justify-content: center; /* Memastikan konten ke tengah */
+            justify-content: center; 
         }
 
-        /* AREA KONTEN UTAMA (Yang menjaga teks sejajar dengan garis) */
+        /* AREA KONTEN UTAMA (Dikecilkan lebarnya dan digeser ke tengah) */
         .inner-area {
-            width: 72%; /* Lebar area teks, sesuaikan jika kurang lebar/sempit */
-            margin-right: 6%; /* Menggeser area teks ke kiri menjauhi area sobekan kanan */
+            width: 65%; /* Lebar area teks dipersempit agar pas di tengah kertas */
+            margin-left: 3%; /* Sedikit menggeser agar pas di tengah-tengah visual kertas */
         }
 
         /* --- HEADER SAPAAN TAMU --- */
         .greeting-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .hello-text {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 800;
             color: #4a4a4a;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .name-highlight {
             display: inline-block;
             background-color: #79ccf8;
             color: #333333;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 900;
-            padding: 5px 20px;
+            padding: 4px 15px;
             text-transform: uppercase;
         }
 
         /* --- KONTEN UTAMA --- */
         .paragraph {
-            font-size: 15px;
+            font-size: 13px; /* Ukuran font diperkecil agar pas dan rapi */
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: justify;
-            line-height: 1.7; 
+            line-height: 1.6; 
         }
 
         .highlight-banner {
             background-color: #79ccf8;
-            padding: 8px 15px;
+            padding: 6px 12px;
             text-align: center;
-            margin: 25px 0;
+            margin: 20px 0;
             width: 100%; 
             display: inline-block;
         }
 
         .highlight-banner .text-black {
             font-family: 'Permanent Marker', cursive;
-            font-size: 20px;
+            font-size: 16px;
             color: #333;
         }
 
         .highlight-banner .text-red {
             font-family: 'Permanent Marker', cursive;
-            font-size: 20px;
+            font-size: 16px;
             color: #e73c3c;
         }
 
         .details-section {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
-            margin-bottom: 35px;
-            line-height: 1.7;
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
 
         .details-section p {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         /* --- AREA TOMBOL --- */
         .actions-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: space-between;
         }
 
@@ -153,19 +153,19 @@
             text-align: center;
             background-color: white; 
             color: black;
-            border: 3px solid black;
-            padding: 12px 10px;
-            font-size: 18px;
+            border: 2.5px solid black;
+            padding: 8px 6px;
+            font-size: 15px;
             font-weight: 800;
             text-decoration: none;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             transition: all 0.2s ease;
         }
 
         .action-btn:hover {
             background-color: #e8e8e8;
             transform: translateY(-2px);
-            box-shadow: 3px 3px 0px black;
+            box-shadow: 2px 2px 0px black;
         }
 
         .action-btn:active {
@@ -174,61 +174,57 @@
         }
 
         .action-desc {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             text-align: left;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* --- RESPONSIVE LAYOUT UNTUK HP --- */
-        @media screen and (max-width: 650px) {
-            body {
-                padding: 15px 10px;
-            }
-
+        @media screen and (max-width: 600px) {
             .paper-content {
-                padding: 60px 0; 
+                padding: 50px 0; 
             }
 
             .inner-area {
-                width: 80%; /* Melebarkan area teks di HP */
-                margin-right: 4%;
+                width: 72%; /* Sedikit disesuaikan untuk layar HP kecil */
+                margin-left: 2%;
             }
 
             .hello-text {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .name-highlight {
-                font-size: 18px;
-                padding: 5px 15px;
+                font-size: 16px;
+                padding: 3px 12px;
             }
 
             .paragraph {
-                font-size: 13px;
+                font-size: 11.5px;
             }
 
             .highlight-banner .text-black, 
             .highlight-banner .text-red {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .details-section {
-                font-size: 13px;
+                font-size: 11.5px;
             }
 
             .actions-container {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             .action-btn {
-                padding: 10px;
-                font-size: 16px;
+                padding: 8px;
+                font-size: 14px;
             }
 
             .action-desc {
-                font-size: 12px;
+                font-size: 10.5px;
                 text-align: center;
             }
         }
@@ -238,7 +234,6 @@
 
     <div class="paper-wrapper">
         <div class="paper-content">
-            <!-- WADAH BARU UNTUK MENENGAHKAN TEKS -->
             <div class="inner-area">
                 
                 <div class="greeting-section">

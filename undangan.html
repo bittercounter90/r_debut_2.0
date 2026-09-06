@@ -24,13 +24,13 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 40px 15px; /* Sedikit dikurangi agar kertas bisa lebih lebar di layar */
+            padding: 40px 15px;
         }
 
         .paper-wrapper {
             position: relative;
             width: 100%;
-            max-width: 750px; /* Diperlebar agar teks punya ruang bernapas di dalam kertas */
+            max-width: 750px; 
             z-index: 1;
         }
 
@@ -55,13 +55,19 @@
             background-position: center;
             background-repeat: no-repeat;
             
-            /* PADDING INI KUNCI UTAMANYA */
-            /* Atas: 90px | Kanan: 120px | Bawah: 90px | Kiri: 100px */
-            /* Nilai kanan lebih besar karena sobekan/bayangan biasanya memakan ruang di kanan */
-            padding: 90px 130px 90px 100px; 
+            /* Hanya memberi jarak atas dan bawah. Kanan-kiri diatur oleh inner-area */
+            padding: 90px 0; 
             
             position: relative;
             border-radius: 2px;
+            display: flex;
+            justify-content: center; /* Memastikan konten ke tengah */
+        }
+
+        /* AREA KONTEN UTAMA (Yang menjaga teks sejajar dengan garis) */
+        .inner-area {
+            width: 72%; /* Lebar area teks, sesuaikan jika kurang lebar/sempit */
+            margin-right: 6%; /* Menggeser area teks ke kiri menjauhi area sobekan kanan */
         }
 
         /* --- HEADER SAPAAN TAMU --- */
@@ -100,7 +106,6 @@
             padding: 8px 15px;
             text-align: center;
             margin: 25px 0;
-            /* Memastikan banner tidak melebihi area teks */
             width: 100%; 
             display: inline-block;
         }
@@ -182,9 +187,12 @@
             }
 
             .paper-content {
-                /* Padding disesuaikan juga untuk HP agar tetap di tengah */
-                /* Atas: 60px | Kanan: 75px | Bawah: 60px | Kiri: 60px */
-                padding: 60px 75px 60px 60px; 
+                padding: 60px 0; 
+            }
+
+            .inner-area {
+                width: 80%; /* Melebarkan area teks di HP */
+                margin-right: 4%;
             }
 
             .hello-text {
@@ -230,52 +238,55 @@
 
     <div class="paper-wrapper">
         <div class="paper-content">
-            
-            <div class="greeting-section">
-                <div class="hello-text">Hello,</div>
-                <div class="name-highlight" id="guest-name-display">GUEST</div>
-            </div>
+            <!-- WADAH BARU UNTUK MENENGAHKAN TEKS -->
+            <div class="inner-area">
+                
+                <div class="greeting-section">
+                    <div class="hello-text">Hello,</div>
+                    <div class="name-highlight" id="guest-name-display">GUEST</div>
+                </div>
 
-            <p class="paragraph">
-                You are exclusively invited to witness the most absurd evolution in the Meowtiverse. The blue cat is upgrading to 2.0! Yes, he finally has hands now, and no, his brain rot hasn't been fixed.
-            </p>
-
-            <p class="paragraph">
-                Get ready for a night full of scuffed moments, questionable life choices, and slice of life comedy right on your screen. Whether you are here for the lore or just want to see a cat rage quit, you belong here.
-            </p>
-
-            <div class="highlight-banner">
-                <span class="text-black">Meowtiverse Phase 2:</span> 
-                <span class="text-red">RUCUS Re-Debut</span>
-            </div>
-
-            <div class="details-section">
-                <p>
-                    Save the Date:<br>
-                    Sunday, October 10th, 2026<br>
-                    07.00 PM | WIB | GMT +7
+                <p class="paragraph">
+                    You are exclusively invited to witness the most absurd evolution in the Meowtiverse. The blue cat is upgrading to 2.0! Yes, he finally has hands now, and no, his brain rot hasn't been fixed.
                 </p>
-                <p>
-                    Location: Rucus Live ID YouTube Channel
-                </p>
-            </div>
 
-            <div class="actions-container">
-                <div class="action-card">
-                    <a href="https://www.youtube.com/@RucusLiveID" class="action-btn" target="_blank">YOUTUBE</a>
-                    <p class="action-desc">
-                        See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
+                <p class="paragraph">
+                    Get ready for a night full of scuffed moments, questionable life choices, and slice of life comedy right on your screen. Whether you are here for the lore or just want to see a cat rage quit, you belong here.
+                </p>
+
+                <div class="highlight-banner">
+                    <span class="text-black">Meowtiverse Phase 2:</span> 
+                    <span class="text-red">RUCUS Re-Debut</span>
+                </div>
+
+                <div class="details-section">
+                    <p>
+                        Save the Date:<br>
+                        Sunday, October 10th, 2026<br>
+                        07.00 PM | WIB | GMT +7
+                    </p>
+                    <p>
+                        Location: Rucus Live ID YouTube Channel
                     </p>
                 </div>
 
-                <div class="action-card">
-                    <a href="https://forms.gle/linkgformkamu" class="action-btn" target="_blank">GFORM</a>
-                    <p class="action-desc">
-                        Got any questions, messages or want to roast the blue cat before the show?<br>Drop them right here!
-                    </p>
-                </div>
-            </div>
+                <div class="actions-container">
+                    <div class="action-card">
+                        <a href="https://www.youtube.com/@RucusLiveID" class="action-btn" target="_blank">YOUTUBE</a>
+                        <p class="action-desc">
+                            See you in the Meowtiverse! Don't be late, or the cat might smash his desk again.
+                        </p>
+                    </div>
 
+                    <div class="action-card">
+                        <a href="https://forms.gle/linkgformkamu" class="action-btn" target="_blank">GFORM</a>
+                        <p class="action-desc">
+                            Got any questions, messages or want to roast the blue cat before the show?<br>Drop them right here!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
